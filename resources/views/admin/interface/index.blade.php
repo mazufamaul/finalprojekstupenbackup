@@ -46,7 +46,7 @@
   
               <div class="col-3">
                 <div class="site-logo">
-                  <a href="index.html"><strong>RentalJaya</strong></a>
+                  <a href="{{url('/interface')}}"><strong>RentalJaya</strong></a>
                 </div>
               </div>
   

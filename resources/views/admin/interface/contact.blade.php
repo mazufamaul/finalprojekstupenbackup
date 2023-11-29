@@ -79,8 +79,8 @@
             <div class="col-lg-5">
 
               <div class="intro">
-                <h1><strong>About</strong></h1>
-                <div class="custom-breadcrumbs"><a href="index.html">Home</a> <span class="mx-2">/</span> <strong>About</strong></div>
+                <h1><strong>Contact</strong></h1>
+                <div class="custom-breadcrumbs"><a href="{{url('/interface')}}">Home</a> <span class="mx-2">/</span> <strong>Contact</strong></div>
               </div>
 
             </div>

@@ -72,7 +72,7 @@
       </header>
 
       
-      <div class="hero inner-page" style="background-image: url('images/hero_1_a.jpg');">
+      <div class="hero inner-page" style="background-image: url('admin/images/hero_1_a.jpg');">
         
         <div class="container">
           <div class="row align-items-end ">
