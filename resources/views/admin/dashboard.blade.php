@@ -149,8 +149,16 @@
                     <table>
 
                         <tr>
-                            <td class="label-column">Nama</td>
-                            <td class="value-column">: Administrator </td>
+                            <td class="label-column">Email</td>
+                            <td class="value-column">: 
+
+                              @if(@empty(Auth::user()->email))
+                              {{''}}    
+                              @else
+                              {{Auth::user()->email }}
+                              @endif   
+
+                           </td>
                         </tr>
                         <tr>
                             <td class="label-column">Username </td>

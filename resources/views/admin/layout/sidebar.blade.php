@@ -127,6 +127,12 @@
                <span>Data Akun</span></a>
          </li>
 
+         <li class="nav-item">
+            <a class="nav-link" href="{{route('email.index')}}">
+               <i class="fas fa-users"></i>
+               <span>Data Akun Email</span></a>
+         </li>
+
          <!-- Nav Item - Tables -->
          <!-- Divider -->
          <!-- Sidebar Toggler (Sidebar) -->

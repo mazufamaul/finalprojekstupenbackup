@@ -25,4 +25,32 @@ class InterfaceController extends Controller
 
 
     }
+
+    public function list()
+    {
+        //
+        $mobil = tbl_mobil::join('tbl_merk','id_merk', '=', 'tbl_merk.id')
+        ->select('tbl_mobil.*', 'tbl_merk.merk as jenis')
+        ->get();
+        return view ('admin.interface.listing', compact('mobil'));
+    }
+
+
+    public function blog(){
+
+        return view ('admin.interface.blog');
+
+    }
+
+    public function about(){
+
+        return view ('admin.interface.about');
+        
+    }
+
+    public function contact(){
+
+        return view ('admin.interface.contact');
+        
+    }
 }

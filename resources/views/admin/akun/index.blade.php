@@ -56,7 +56,7 @@
 
                                             <td>
                                                 
-                                                <a href="{{ route('akun.show', $jen->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i> Lihat data</a>
+                                                {{-- <a href="{{ route('akun.show', $jen->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i> Lihat data</a> --}}
 
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$jen->id}}"><i class="fas fa-trash"></i> Hapus</button>

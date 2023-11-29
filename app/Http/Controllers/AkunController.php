@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Akun;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -12,6 +13,7 @@ use Illuminate\Support\Str;
 class AkunController extends Controller
 {
     //
+    
     public function index()
     {
     $akun = Akun::all();
@@ -90,6 +92,14 @@ class AkunController extends Controller
         DB::table('akun')->where('id', $id)->delete();
         return redirect()->route('akun.index')->with('success', 'Data Berhasil dihapus!');
     }
+
+
+
+
+
+
+
+
 
 
 }

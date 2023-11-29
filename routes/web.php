@@ -11,6 +11,7 @@ use App\Http\Controllers\MobilController;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\InterfaceController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EmailController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -82,6 +83,9 @@ Route::resource('perjalanan', PerjalananController::class);
 
 //dengan resource
 
+Route::resource('email', EmailController::class);
+Route::delete('/email/{id}', 'EmailController@destroy')->name('email.destroy');
+
 Route::resource('pemesan', PemesanController::class);
 Route::resource('akun', AkunController::class);
 Route::delete('/akun/{id}', 'AkunController@destroy')->name('akun.destroy');
@@ -94,6 +98,11 @@ Route::delete('/akun/{id}', 'AkunController@destroy')->name('akun.destroy');
 
 //interface
 Route::get('/interface', [InterfaceController::class, 'index']);
+Route::get('/listing', [InterfaceController::class, 'list']);
+Route::get('/blog', [InterfaceController::class, 'blog']);
+Route::get('/about', [InterfaceController::class, 'about']);
+Route::get('/contact', [InterfaceController::class, 'contact']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

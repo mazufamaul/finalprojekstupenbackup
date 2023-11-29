@@ -83,7 +83,7 @@
 
 <style>
     body {
-        background-color: #7fb4ec; /* Ganti dengan warna primer yang diinginkan #007bff*/
+        background-color: #193655; /* Ganti dengan warna primer yang diinginkan #007bff*/
     }
 
     .form-container {
