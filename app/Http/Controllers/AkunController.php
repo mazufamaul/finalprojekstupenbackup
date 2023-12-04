@@ -14,6 +14,7 @@ class AkunController extends Controller
 {
     //
     
+    
     public function index()
     {
     $akun = Akun::all();
@@ -33,7 +34,7 @@ class AkunController extends Controller
         //
         $data = $request->validate([
             'nama' => 'required|max:50',
-            'username' => 'required|max:15',
+            'username' => 'required|max:15|unique:akun',
             'password' => 'required|max:255',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024', // sesuaikan dengan kebutuhan
            
@@ -41,9 +42,13 @@ class AkunController extends Controller
         [
             'nama.required' => 'Nama wajib diisi',
             'nama.max' => 'Nama Maximal 15',
+            'username.required' => 'Username wajib diisi',
+            'username.max' => 'Username maximal 15 karakter',
+            'username.unique' => 'Username sudah digunakan',
             'password.required' => 'Password wajib diisi',
             'password.max' => 'Password Maximal 255',
             'foto.max' => 'Maksimal 1 MB',
+            'foto.required' => 'Foto wajib diisi',
             'foto.image' => 'File ektensi harus jpg,jpeg,png,gif',
            
         ]
@@ -66,7 +71,9 @@ class AkunController extends Controller
         'foto'=>$fileName,
         'password'=>$hashedPassword,
     ]);
-    return redirect()->route('akun.index')->with('success', 'Data Berhasil ditambahkan!');
+    return redirect()->route('akun.create')->with('success', 'Registrasi berhasil!');
+    // return redirect()->to(url('/interface'))->with('success', 'Registrasi berhasil!');
+    
 
     }
 
@@ -84,7 +91,8 @@ class AkunController extends Controller
         }
 
         return view('admin.akun.detail', ['akun' => $akun]);
-
+       
+       
 
     }
 

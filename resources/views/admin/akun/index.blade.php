@@ -21,9 +21,9 @@
                     <h2>Data Akun</h2>
                     <hr>
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
+                        {{-- <div class="card-header py-3">
                            <a href="{{ route('akun.create') }}" class="btn btn-success" ><i class="fas fa-plus"></i> Tambah Data</a>
-                        </div>
+                        </div> --}}
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -56,7 +56,7 @@
 
                                             <td>
                                                 
-                                                {{-- <a href="{{ route('akun.show', $jen->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i> Lihat data</a> --}}
+                                                <a href="{{ route('akun.show', $jen->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-eye"></i> Lihat data</a>
 
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$jen->id}}"><i class="fas fa-trash"></i> Hapus</button>

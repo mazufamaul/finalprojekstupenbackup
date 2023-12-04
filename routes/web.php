@@ -12,7 +12,10 @@ use App\Http\Controllers\AkunController;
 use App\Http\Controllers\InterfaceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LoginuserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +27,20 @@ use Illuminate\Support\Facades\Auth;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+// Menampilkan form login
+Route::get('/user/interface', [LoginUserController::class, 'showLoginFormUser'])->name('admin.user');
+
+Route::get('/user/login', [LoginUserController::class, 'showLoginForm'])->name('admin.login');
+
+
+// Proses login
+Route::post('/user/process-login', [LoginUserController::class, 'login'])->name('process.login');
+
+// Logout
+// Route::post('/user/logout', [LoginUserController::class, 'logout'])->name('admin.logout');
+Route::get('/user/logout', [LoginUserController::class, 'logout'])->name('admin.logout');
 
 
 
@@ -87,12 +104,14 @@ Route::resource('email', EmailController::class);
 Route::delete('/email/{id}', 'EmailController@destroy')->name('email.destroy');
 
 Route::resource('pemesan', PemesanController::class);
-Route::resource('akun', AkunController::class);
-Route::delete('/akun/{id}', 'AkunController@destroy')->name('akun.destroy');
 
 });
 
 
+Route::resource('rent', RentController::class);
+
+Route::delete('/akun/{id}', [AkunController::class, 'destroy'])->name('akun.destroy');
+Route::resource('akun', AkunController::class);
 
 
 

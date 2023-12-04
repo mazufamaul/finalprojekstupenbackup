@@ -6,6 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -83,8 +84,27 @@
                     <li><a href="{{url('/about')}}" class="nav-link">About</a></li>
                     <li><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
 
-                    <li><a href="{{url('/user/login')}}" class="nav-link font-weight-bold">Login</a></li>
-                    <li><a href="{{ route('akun.create') }}" class="nav-link font-weight-bold">Register</a></li>
+                    {{-- <li><a href="#" class="nav-link font-weight-bold">Login</a></li>
+                    <li><a href="{{ route('akun.create') }}" class="nav-link font-weight-bold">Register</a></li> --}}
+                    
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Akun
+                      </a>
+
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="">Profile</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{ url('/interface') }}">Logout</a>
+                      </div> 
+
+                     
+
+                  </li>
+
+                 
+
+                    {{-- <li><a href="{{url('/user/logout')}}" class="nav-link font-weight-bold">Logout</a></li> --}}
 
 
                   </ul>
@@ -143,7 +163,7 @@
                   </div>
                 </div>
                 
-              </form> 
+              </form>
 
             </div>
           </div>
@@ -281,7 +301,7 @@
                     ?>
                     <small class="text-muted ">Last updated: <?php echo $now->format('l, d F Y H:i:s'); ?></small>
                   </div>
-                  <p><a href="{{url('/user/login')}}"  class="btn btn-primary btn-sm mt-3">Login For Rent</a></p>
+                  <p><a href="{{ route('rent.create') }}" class="btn btn-primary btn-sm mt-3">Rent Now</a></p>
                   
                 </div>
               </div>
