@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Rental Jaya Orange test</title>
+    <title>Rental Mobil-Uxe</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -41,7 +41,7 @@
                <div class="sidebar-brand-icon rotate-n-15">
                <i class="fas fa-car fa-3x"></i>
                </div>
-               <div class="sidebar-brand-text mx-3">Rental Jaya</div>
+               <div class="sidebar-brand-text mx-3">Rental Mobil-Uxe</div>
             </a>
 
             <!-- Divider -->

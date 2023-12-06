@@ -56,7 +56,7 @@ Route::get('/', function () {
 
 
 
-Route::group(['middleware' => ['auth', 'peran:admin-manager-staff-pelanggan']], function(){
+Route::group(['middleware' => ['auth', 'peran:admin-manager-staff']], function(){
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

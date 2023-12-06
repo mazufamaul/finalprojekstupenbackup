@@ -10,7 +10,7 @@
     </div>
 @endif
 
-<h2>Dashboard Rental Jaya</h2>
+<h2>Dashboard Rental Mobil-Uxe</h2>
 <hr>
 
 <div class="row">
