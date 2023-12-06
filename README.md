@@ -64,3 +64,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+ADA 3 HAK AKSES USER : 
+
+USER -> 
+email    : pelanggan@gmail.com
+password : 12345678
+
+- memiliki hak akses penuh
+ADMIN ->
+email    : admin@gmail.com
+password : 12345678
+
+- tidak dapat melakukan tambah data akun
+PEGAWAI ->
+email    : pegawai@gmail.com
+password : 12345678

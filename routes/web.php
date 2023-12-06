@@ -46,13 +46,17 @@ Route::get('/user/logout', [LoginUserController::class, 'logout'])->name('admin.
 
 
 
+// Route::get('/', function () {
+//     return redirect('/interface');
+// });
+
 Route::get('/', function () {
-    return redirect('/interface');
+    return view('welcome');
 });
 
 
 
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth', 'peran:admin-manager-staff-pelanggan']], function(){
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -106,6 +110,16 @@ Route::delete('/email/{id}', 'EmailController@destroy')->name('email.destroy');
 Route::resource('pemesan', PemesanController::class);
 
 });
+
+
+
+
+
+
+
+
+
+
 
 
 Route::resource('rent', RentController::class);

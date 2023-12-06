@@ -38,114 +38,117 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
-            <div class="sidebar-brand-icon rotate-n-15">
-               <!-- <i class="fas fa-laugh-wink"></i> -->
+               <div class="sidebar-brand-icon rotate-n-15">
                <i class="fas fa-car fa-3x"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">Rental Jaya</div>
+               </div>
+               <div class="sidebar-brand-text mx-3">Rental Jaya</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+         
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/dashboard')}}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                  <a class="nav-link" href="{{url('/dashboard')}}">
+                  <i class="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Dashboard</span></a>
+            </li>
+            
+           
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+
+               <!-- Heading -->
+               <div class="sidebar-heading">
+                  Management Data
+               </div>
+
+           
+               <!-- Nav Item - Pages Collapse Menu -->
+               <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                     <!-- <i class="fas fa-fw fa-cog"></i> -->
+                     <i class="fas fa-car"></i>
+                     <span>Data Kendaraan</span>
+                  </a>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Data</h6>
+                        <a class="collapse-item" href="{{url('/tbl_mobil')}}">Mobil</a>
+                        <a class="collapse-item" href="{{url('/tbl_merk')}}">Merk</a>
+                     </div>
+                  </div>
+               </li>
+          
+
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+               Management Order
+            </div>
+
+            <li class="nav-item">
+               <a class="nav-link" href="{{route('pemesan.index')}}">
+               <i class="fas fa-user"></i>
+                  <span>Data Pemesan</span></a>
+            </li>
+
+            <li class="nav-item">
+               <a class="nav-link" href="{{route('perjalanan.index')}}">
+               <i class="fas fa-walking"></i>
+                  <span>Data Perjalanan</span></a>
+            </li>
+
+            <li class="nav-item">
+               <a class="nav-link" href="{{url('/jenis')}}">
+               <i class="fas fa-dollar-sign"></i>
+                  <span>Data Jenis Bayar</span></a>
+            </li>
+
+            <li class="nav-item">
+               <a class="nav-link" href="{{url('/pesanan')}}">
+               <i class="fas fa-clipboard-list"></i>
+                  <span>Data Pesanan</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Management Data
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-               <!-- <i class="fas fa-fw fa-cog"></i> -->
-               <i class="fas fa-car"></i>
-               <span>Data Kendaraan</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-               <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">Data</h6>
-                  <a class="collapse-item" href="{{url('/tbl_mobil')}}">Mobil</a>
-                  <a class="collapse-item" href="{{url('/tbl_merk')}}">Merk</a>
+            @if (Auth::user()->role == 'admin')
+               <!-- Heading -->
+               <div class="sidebar-heading">
+                  Management User
                </div>
+
+               <!-- Nav Item - Pages Collapse Menu -->
+            
+                  <!-- Nav Item - Charts -->
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{route('akun.index')}}">
+                        <i class="fas fa-users"></i>
+                        <span>Data Akun</span></a>
+                  </li>
+
+                  <li class="nav-item">
+                     <a class="nav-link" href="{{route('email.index')}}">
+                        <i class="fas fa-users"></i>
+                        <span>Data Akun Email</span></a>
+                  </li>
+               @endif
+
+
+            <!-- Nav Item - Tables -->
+            <!-- Divider -->
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+               <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-         </li>
-         <hr class="sidebar-divider">
-         <div class="sidebar-heading">
-            Management Order
-         </div>
 
-         <li class="nav-item">
-            <a class="nav-link" href="{{route('pemesan.index')}}">
-            <i class="fas fa-user"></i>
-               <span>Data Pemesan</span></a>
-         </li>
-
-         <li class="nav-item">
-            <a class="nav-link" href="{{route('perjalanan.index')}}">
-            <i class="fas fa-walking"></i>
-               <span>Data Perjalanan</span></a>
-         </li>
-
-         <li class="nav-item">
-            <a class="nav-link" href="{{url('/jenis')}}">
-            <i class="fas fa-dollar-sign"></i>
-               <span>Data Jenis Bayar</span></a>
-         </li>
-
-         <li class="nav-item">
-            <a class="nav-link" href="{{url('/pesanan')}}">
-            <i class="fas fa-clipboard-list"></i>
-               <span>Data Pesanan</span></a>
-         </li>
-
-
-         
-
-         <!-- Divider -->
-         <hr class="sidebar-divider">
-
-         <!-- Heading -->
-         <div class="sidebar-heading">
-            Management User
-         </div>
-
-         <!-- Nav Item - Pages Collapse Menu -->
-     
-         <!-- Nav Item - Charts -->
-         <li class="nav-item">
-            <a class="nav-link" href="{{route('akun.index')}}">
-               <i class="fas fa-users"></i>
-               <span>Data Akun</span></a>
-         </li>
-
-         <li class="nav-item">
-            <a class="nav-link" href="{{route('email.index')}}">
-               <i class="fas fa-users"></i>
-               <span>Data Akun Email</span></a>
-         </li>
-
-         <!-- Nav Item - Tables -->
-         <!-- Divider -->
-         <!-- Sidebar Toggler (Sidebar) -->
-         <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-         </div>
-
-         <!-- Sidebar Message -->
-         <!-- <div class="sidebar-card d-none d-lg-flex">
-            <img class="sidebar-card-illustration mb-2" src="admin/img/undraw_rocket.svg" alt="...">
-            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-         </div> -->
+            <!-- Sidebar Message -->
+            <!-- <div class="sidebar-card d-none d-lg-flex">
+               <img class="sidebar-card-illustration mb-2" src="admin/img/undraw_rocket.svg" alt="...">
+               <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+               <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+            </div> -->
 
       </ul>
       <!-- End of Sidebar -->
