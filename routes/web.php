@@ -101,6 +101,8 @@ Route::delete('/email/{id}', 'EmailController@destroy')->name('email.destroy');
 
 Route::resource('pemesan', PemesanController::class);
 Route::get('/user', [UserController::class, 'index']);
+Route::get('/profile', [UserController::class, 'show']);
+Route::patch('/profile/edit/{id}', [UserController::class, 'update']);
 
 });
 

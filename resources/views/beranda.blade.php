@@ -108,49 +108,36 @@
     		<div class="row">
     			<div class="col-md-12">
     				<div class="carousel-car owl-carousel">
+
+                        @foreach($mobil as $mob)
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-1.jpg);">
+
+		    					<div class="img rounded d-flex align-items-end">
+                                    @empty($mob->gambar)
+                                    <img  class="img rounded" src="{{ url('admin/img/nophoto.png') }}" alt="No Photo">
+                                    @else
+                                    <img class="img rounded" src="{{ url('admin/img') }}/{{ $mob->gambar }}" alt="{{ $mob->nama }}">
+                                    @endempty
 		    					</div>
+
+                               
+
 		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
+		    						<h2 class="mb-0"><a href="#">{{ $mob->nama }} </a></h2>
 		    						<div class="d-flex mb-3">
 			    						<span class="cat">Cheverolet</span>
-			    						<p class="price ml-auto">$500 <span>/day</span></p>
+			    						<p class="price ml-auto">Rp. {{ $mob->harga }} <span>/day</span></p>
 		    						</div>
 		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
 		    					</div>
 		    				</div>
     					</div>
-    					<div class="item">
-    						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-2.jpg);">
-		    					</div>
-		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-		    						<div class="d-flex mb-3">
-			    						<span class="cat">Cheverolet</span>
-			    						<p class="price ml-auto">$500 <span>/day</span></p>
-		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
-		    					</div>
-		    				</div>
-    					</div>
-                        
-    					<div class="item">
-    						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-3.jpg);">
-		    					</div>
-		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
-		    						<div class="d-flex mb-3">
-			    						<span class="cat">Cheverolet</span>
-			    						<p class="price ml-auto">$500 <span>/day</span></p>
-		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
-		    					</div>
-		    				</div>
-    					</div>
+                        @endforeach
+
+    					
+
+    					
     					
     				</div>
     			</div>
