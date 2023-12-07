@@ -21,6 +21,7 @@
             <div class="card-body">
                 <p class="card-text font-weight-bold">Mobil         : {{ $p->nama }}</p>
                 <p class="card-text font-weight-bold">Warna         : {{ $p->warna }}</p>
+                <p class="card-text font-weight-bold">Harga Sewa    : {{ $p->harga }}</p>
                 <p class="card-text font-weight-bold">No Polisi     : {{ $p->no_polisi }}</p>
                 <p class="card-text font-weight-bold">Jumlah Kursi  : {{ $p->jumlah_kursi }}</p>
                 <p class="card-text font-weight-bold">Tahun Beli    : {{ $p->tahun_beli }}</p>

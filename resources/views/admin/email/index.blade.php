@@ -34,6 +34,7 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Email</th>
+                                            <th>Role</th>
                                             <th>Action</th>   
                                         </tr>
                                     </thead>
@@ -42,6 +43,7 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th>Action</th>  
                                         </tr>
                                     </tfoot>
@@ -53,6 +55,7 @@
                                             <td>{{$no++}}</td>
                                             <td>{{$jen->name}}</td>
                                             <td>{{$jen->email}}</td>
+                                            <td>{{$jen->role}}</td>
 
                                             <td>
                                                 

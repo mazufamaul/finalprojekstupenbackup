@@ -15,7 +15,9 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginuserController;
-
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\PagenotController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,35 +31,25 @@ use App\Http\Controllers\LoginuserController;
 */
 
 
-// Menampilkan form login
-Route::get('/user/interface', [LoginUserController::class, 'showLoginFormUser'])->name('admin.user');
-
-Route::get('/user/login', [LoginUserController::class, 'showLoginForm'])->name('admin.login');
 
 
-// Proses login
-Route::post('/user/process-login', [LoginUserController::class, 'login'])->name('process.login');
 
-// Logout
-// Route::post('/user/logout', [LoginUserController::class, 'logout'])->name('admin.logout');
-Route::get('/user/logout', [LoginUserController::class, 'logout'])->name('admin.logout');
 
 
 
 
 
 // Route::get('/', function () {
-//     return redirect('/interface');
+//     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[BerandaController::class, 'index']);
 
 
 
 Route::group(['middleware' => ['auth', 'peran:admin-manager-staff']], function(){
 
+Route::get('/notfound', [PagenotController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/tbl_merk', [MerkController::class, 'index']);
@@ -108,18 +100,9 @@ Route::resource('email', EmailController::class);
 Route::delete('/email/{id}', 'EmailController@destroy')->name('email.destroy');
 
 Route::resource('pemesan', PemesanController::class);
+Route::get('/user', [UserController::class, 'index']);
 
 });
-
-
-
-
-
-
-
-
-
-
 
 
 Route::resource('rent', RentController::class);

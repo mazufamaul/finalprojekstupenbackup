@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Nov 2023 pada 18.44
+-- Waktu pembuatan: 07 Des 2023 pada 14.28
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -42,8 +42,10 @@ CREATE TABLE `akun` (
 INSERT INTO `akun` (`id`, `nama`, `username`, `password`, `foto`) VALUES
 (4, 'Maulana', 'admin3', '$2y$10$bwSFIG0wVm/oVn5D9wbf0.V6lO1KXEgtbioCdRwZ4IDmPObetMCPG', 'foto-65572ca405fd0.jpg'),
 (5, 'santo', 'satu', '$2y$10$T1EhgqmZTajAc8EoubQnnetBOQgkdgNZb6UnhnebqMbSTB.E4yZaC', 'foto-655a2a08d50a1.png'),
-(6, 'werto', 'dua', '$2y$10$F7DeKeKAk8ebDBdiPbMN6uZGdZ1gnwfzFvZgZTcvTgX3Y/esmobkG', 'foto-655a3007934e4.jpg'),
-(7, 'obing', 'empat', '$2y$10$u6OBeBf0vKJxVKW774dJCeuyRHrN1HIX9zwsyVjNbEMzanLMi.G52', 'foto-655a354c247d4.jpg');
+(23, 'manusr', 'mansur', '$2y$10$fSkIMyx7u8w.uo2.Z2fLnu0IbztJzLbwELJiR5pMLJk4lPf5mh60S', 'foto-656b68f30e537.jpg'),
+(26, 'husen', 'husen', '$2y$10$OsPW.R75UAtMKxxzt.HYD.hvZAf/RFPBNumOT0dW67KgsNe6Wfd/G', 'foto-656cc8e10b626.jpg'),
+(28, 'dua', 'dua', '$2y$10$z31tW7EPdhDUf71WoO7yd.9d0SKYXqBuUQ0KyEcSCPiapdHnee5Ly', 'foto-656dc13d3f3f3.jpg'),
+(29, 'lima', 'lima', '$2y$10$nPJGN9ZcWa8hHCqdIbR0bOFf3rGS9ncHIq08Gs77e32akWmK/ydTe', 'foto-656dec9f14a4d.jpg');
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2023_11_06_224451_create_pemesans_table', 1),
 (8, '2023_11_06_224939_create_jenis_bayars_table', 1),
 (9, '2023_11_07_002626_create_perjalanans_table', 1),
-(10, '2023_11_07_005706_create_pesanans_table', 1);
+(10, '2023_11_07_005706_create_pesanans_table', 1),
+(11, '2014_10_12_100000_create_password_resets_table', 2),
+(12, '2023_11_03_014141_create_staff_table', 2);
 
 -- --------------------------------------------------------
 
@@ -192,6 +196,18 @@ CREATE TABLE `mobils` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `password_reset_tokens`
 --
 
@@ -220,8 +236,7 @@ CREATE TABLE `pemesan` (
 --
 
 INSERT INTO `pemesan` (`id`, `nama`, `alamat`, `jk`, `ktp`) VALUES
-(3, 'Muhammad', 'jl seribu da', 'L', 'storage/pemesan/01HF9SJ6G0SAQ65N6EWFN3KNYP.jpg'),
-(4, 'malik', 'test', 'L', 'storage/pemesan/01HF9SNWS4E5Z1A3VDEMY9G4PJ.jpg'),
+(3, 'Muhammad', 'jl seribu da', 'L', 'storage/pemesan/01HH1VCEFH719WPWD092Q54VVG.jpg'),
 (5, 'Kaisar', 'jl muara angke no 45', 'L', 'storage/pemesan/01HF9XH2JE2E23RC8J2Z43KF3E.jpg'),
 (9, 'Selmaet', 'jl tangerang 45', 'L', 'storage/pemesan/01HFSDG8KNXCMH001JHFA3GKA5.png');
 
@@ -340,6 +355,24 @@ INSERT INTO `pesanan` (`id`, `harga`, `tgl_pinjam`, `tgl_kembali`, `pemesan_id`,
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `staff`
+--
+
+CREATE TABLE `staff` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nip` char(3) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `gender` enum('L','P') NOT NULL,
+  `alamat` text NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tbl_merk`
 --
 
@@ -371,6 +404,7 @@ CREATE TABLE `tbl_mobil` (
   `id` int(11) NOT NULL,
   `nama` varchar(30) DEFAULT NULL,
   `warna` varchar(20) DEFAULT NULL,
+  `harga` int(11) DEFAULT NULL,
   `no_polisi` varchar(10) DEFAULT NULL,
   `jumlah_kursi` int(1) DEFAULT NULL,
   `tahun_beli` int(4) DEFAULT NULL,
@@ -382,11 +416,11 @@ CREATE TABLE `tbl_mobil` (
 -- Dumping data untuk tabel `tbl_mobil`
 --
 
-INSERT INTO `tbl_mobil` (`id`, `nama`, `warna`, `no_polisi`, `jumlah_kursi`, `tahun_beli`, `gambar`, `id_merk`) VALUES
-(18, 'Ford 23', 'Hitam', 'RR 2313 WE', 4, 2021, 'foto-18.jpg', 14),
-(19, 'Lamborgini', 'abu abu', 'R 9387 TR', 4, 2021, 'foto-19.jpg', 19),
-(20, 'Civic', 'putih', 'RR 2034 QW', 4, 2021, 'foto-20.jpg', 14),
-(23, 'Xenia', 'Hitam', 'RR 2034 RT', 4, 2021, 'foto-23.jpg', 13);
+INSERT INTO `tbl_mobil` (`id`, `nama`, `warna`, `harga`, `no_polisi`, `jumlah_kursi`, `tahun_beli`, `gambar`, `id_merk`) VALUES
+(18, 'Ford 23', 'Hitam', 200000, 'RR 2313 WE', 4, 2021, 'foto-18.jpg', 14),
+(19, 'Lamborgini', 'abu abu', 400000, 'R 9387 TR', 4, 2021, 'foto-19.jpg', 25),
+(23, 'Xenia', 'Hitam', 500000, 'RR 2034 RT', 4, 2021, 'foto-23.jpg', 13),
+(29, 'bmw', 'hijau', 200000, 'ER 2034 RT', 4, 2019, 'foto-29.jpg', 13);
 
 -- --------------------------------------------------------
 
@@ -397,14 +431,28 @@ INSERT INTO `tbl_mobil` (`id`, `nama`, `warna`, `no_polisi`, `jumlah_kursi`, `ta
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
+  `role` enum('admin','manager','staff','pelanggan') NOT NULL DEFAULT 'pelanggan',
+  `foto` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `foto`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$EiFIzZZt2iUNbVR.g3d4oe6pLgnlnLaSG1rtIJDoPer0DqGphaPKm', NULL, 'admin', NULL, '2023-11-27 11:46:52', '2023-11-27 11:46:52'),
+(7, 'pegawai', 'pegawai@gmail.com', NULL, '$2y$10$QvsAe1WwIRtEG.4gp7YRlOHUyxW27Zym6vu/xDMkvW4QbmimPNdFm', NULL, 'manager', NULL, '2023-12-06 07:26:23', '2023-12-06 07:26:23'),
+(8, 'staff', 'staff@gmail.com', NULL, '$2y$10$8lOHSorvMxGdU83qd/uNoO0e0n4xewscXGio7roPD0E/o1IAD2e.S', NULL, 'staff', NULL, '2023-12-06 07:26:59', '2023-12-06 07:26:59'),
+(9, 'pelanggan2', 'pelanggan2@gmail.com', NULL, '$2y$10$oP6plDOCM4I9pi2L3Byq/eoVM.4gPm7JB7tTp1aTa8qXXekjgAogW', NULL, 'staff', NULL, '2023-12-06 10:27:34', '2023-12-06 10:27:34'),
+(12, 'pelanggan3', 'pelanggan3@gmail.com', NULL, '$2y$10$mXMeli5RNW2Ske62Rs7Bz.nmVSTqOt9HPM854wxADGAoJee9tgMjy', NULL, 'pelanggan', NULL, '2023-12-06 11:17:04', '2023-12-06 11:17:04'),
+(13, 'pelanggan4', 'pelanggan4@gmail.com', NULL, '$2y$10$kLxbSGRPailmunoZNWUhQOYJ/QplnGYZsaJaDFqF/1WUNxYUnOePq', NULL, 'pelanggan', NULL, '2023-12-06 11:27:17', '2023-12-06 11:27:17'),
+(14, 'penyewa', 'penyewa@gmail.com', NULL, '$2y$10$h.xVNJ6EtmWydEwLCXfOpuVU7dYQ.R7UPo8UUTbBH9bTl3vVwNhI2', NULL, 'pelanggan', NULL, '2023-12-06 12:14:05', '2023-12-06 12:14:05');
 
 --
 -- Indexes for dumped tables
@@ -468,6 +516,12 @@ ALTER TABLE `mobils`
   ADD KEY `mobils_merk_id_foreign` (`merk_id`);
 
 --
+-- Indeks untuk tabel `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
 -- Indeks untuk tabel `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -516,6 +570,14 @@ ALTER TABLE `pesanan`
   ADD KEY `fk_pesanan_tbl_mobil` (`mobil_id`);
 
 --
+-- Indeks untuk tabel `staff`
+--
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `staff_nip_unique` (`nip`),
+  ADD UNIQUE KEY `staff_email_unique` (`email`);
+
+--
 -- Indeks untuk tabel `tbl_merk`
 --
 ALTER TABLE `tbl_merk`
@@ -533,7 +595,6 @@ ALTER TABLE `tbl_mobil`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_username_unique` (`username`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
@@ -544,7 +605,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
@@ -580,7 +641,7 @@ ALTER TABLE `merks`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `mobil`
@@ -598,7 +659,7 @@ ALTER TABLE `mobils`
 -- AUTO_INCREMENT untuk tabel `pemesan`
 --
 ALTER TABLE `pemesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemesans`
@@ -631,6 +692,12 @@ ALTER TABLE `pesanan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT untuk tabel `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_merk`
 --
 ALTER TABLE `tbl_merk`
@@ -640,13 +707,13 @@ ALTER TABLE `tbl_merk`
 -- AUTO_INCREMENT untuk tabel `tbl_mobil`
 --
 ALTER TABLE `tbl_mobil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

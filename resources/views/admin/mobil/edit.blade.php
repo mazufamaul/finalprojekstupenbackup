@@ -51,6 +51,13 @@
       <input id="text1" name="warna" type="text" class="form-control" value="{{$pr->warna}}">
     </div>
   </div>
+
+  <div class="form-group row">
+    <label for="text1" class="col-4 col-form-label">Harga Sewa</label> 
+    <div class="col-8">
+      <input id="text1" name="harga" type="number" class="form-control" value="{{$pr->harga}}">
+    </div>
+  </div>
   
   <div class="form-group row">
     <label for="text2" class="col-4 col-form-label">No Polisi</label> 

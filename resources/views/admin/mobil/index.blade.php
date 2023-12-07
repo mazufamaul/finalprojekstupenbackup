@@ -31,9 +31,10 @@
                                         <th>No</th>
                                             <th>Nama</th>
                                             <th>Warna</th>
+                                            <th>Biaya Sewa</th>
                                             <th>No Polisi</th>
-                                            <th>Jumlah Kursi</th>
-                                            <th>Tahun Beli</th>
+                                            <th>Kursi</th>
+                                            <th>Tahun </th>
                                             <th>Merk</th>
                                             <th>Action</th>
                                             
@@ -44,6 +45,7 @@
                                         <th>No</th>
                                             <th>Nama</th>
                                             <th>Warna</th>
+                                            <th>Harga Sewa</th>
                                             <th>No Polisi</th>
                                             <th>Jumlah Kursi</th>
                                             <th>Tahun Beli</th>
@@ -59,6 +61,7 @@
                                             <td>{{$no++}}</td>
                                             <td>{{$pr->nama}}</td>
                                             <td>{{$pr->warna}}</td>
+                                            <td>{{$pr->harga}}</td>
                                             <td>{{$pr->no_polisi}}</td>
                                             <td>{{$pr->jumlah_kursi}}</td>
                                             <td>{{$pr->tahun_beli}}</td>

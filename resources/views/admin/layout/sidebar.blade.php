@@ -110,6 +110,12 @@
                   <span>Data Pesanan</span></a>
             </li>
 
+            <li class="nav-item">
+               <a class="nav-link" href="{{url('/user')}}">
+                  <i class="fas fa-users"></i>
+                  <span>Data User Test</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -122,12 +128,13 @@
                <!-- Nav Item - Pages Collapse Menu -->
             
                   <!-- Nav Item - Charts -->
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                      <a class="nav-link" href="{{route('akun.index')}}">
                         <i class="fas fa-users"></i>
                         <span>Data Akun</span></a>
-                  </li>
+                  </li> --}}
 
+                  
                   <li class="nav-item">
                      <a class="nav-link" href="{{route('email.index')}}">
                         <i class="fas fa-users"></i>

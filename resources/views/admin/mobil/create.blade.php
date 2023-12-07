@@ -60,6 +60,18 @@
       @enderror
     </div>
   </div>
+
+  <div class="form-group row">
+    <label for="text1" class="col-4 col-form-label">Harga Sewa</label> 
+    <div class="col-8">
+      <input id="text1" name="harga" type="number" class="form-control @error('harga') is-invalid @enderror">
+      @error('harga')
+      <div class="invalid-feedback">
+        {{ $message }}
+      </div>
+      @enderror
+    </div>
+  </div>
   
   <div class="form-group row">
     <label for="text2" class="col-4 col-form-label">No polisi</label> 

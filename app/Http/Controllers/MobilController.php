@@ -46,6 +46,7 @@ class MobilController extends Controller
         $this->validate($request, [
             'nama' => 'required|max:30',
             'warna' => 'required|max:20',
+            'harga' => 'required|max:11',
             'no_polisi' => 'required|max:10',
             'jumlah_kursi' => 'required|max:1',
             'tahun_beli' => 'required|max:4',
@@ -57,6 +58,8 @@ class MobilController extends Controller
             'nama.max' => 'Nama maksimal 30 karakter',
             'warna.required' => 'Warna wajib diisi',
             'warna.max' => 'Warna max 10',
+            'harga.required' => 'Harga wajib diisi',
+            'harga.max' => 'Harga max 11',
             'no_polisi.required' => 'No polisi wajib diisi',
             'no_polisi.max' => 'No polisi max 10',
             'jumlah_kursi.required' => 'Jumlah kursi wajib diisi',
@@ -81,6 +84,7 @@ class MobilController extends Controller
         DB::table('tbl_mobil')->insert([
             'nama'=>$request->nama,
             'warna'=>$request->warna,
+            'harga'=>$request->harga,
             'no_polisi'=>$request->no_polisi,
             'jumlah_kursi'=>$request->jumlah_kursi,
             'tahun_beli'=>$request->tahun_beli,
@@ -127,6 +131,7 @@ class MobilController extends Controller
         $this->validate($request, [
             'nama' => 'required|max:30',
             'warna' => 'required|max:20',
+            'harga' => 'required|max:11',
             'no_polisi' => 'required|max:10',
             'jumlah_kursi' => 'required|max:1',
             'tahun_beli' => 'required|max:4',
@@ -138,6 +143,8 @@ class MobilController extends Controller
             'nama.max' => 'Nama maksimal 30 karakter',
             'warna.required' => 'Warna wajib diisi',
             'warna.max' => 'Warna max 10',
+            'harga.required' => 'Harga wajib diisi',
+            'harga.max' => 'Harga max 11',
             'no_polisi.required' => 'No polisi wajib diisi',
             'no_polisi.max' => 'No polisi max 10',
             'jumlah_kursi.required' => 'Jumlah kursi wajib diisi',
@@ -170,6 +177,7 @@ class MobilController extends Controller
         DB::table('tbl_mobil')->where('id',$request->id)->update([
             'nama'=>$request->nama,
             'warna'=>$request->warna,
+            'harga'=> $request->harga,
             'no_polisi'=>$request->no_polisi,
             'jumlah_kursi'=>$request->jumlah_kursi,
             'tahun_beli'=>$request->tahun_beli,
