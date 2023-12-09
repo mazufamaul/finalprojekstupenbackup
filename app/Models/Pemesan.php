@@ -10,7 +10,7 @@ class Pemesan extends Model
 
     use HasFactory;
     protected $table = 'pemesan';
-    protected $fillable = ['nama', 'alamat', 'jk', 'ktp'];
+    protected $fillable = ['nama','no_telepon','alamat','ktp','mobil','tanggal_pinjam','tanggal_kembali'];
     public $timestamps = false;
 
     public function pemesan(){

@@ -55,7 +55,9 @@
 		                <input type="text" class="form-control" id="time_pick" placeholder="Time">
 		              </div>
 			            <div class="form-group">
-			              <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+			              
+                    <button class="btn btn-primary py-3 px-4"><a href="{{ route('login') }}" class="btn btn-secondary py-3 px-4">Rent Car Now</a></button>
+
 			            </div>
 			    			</form>
 	  					</div>
@@ -109,32 +111,68 @@
     			<div class="col-md-12">
     				<div class="carousel-car owl-carousel">
 
-                        @foreach($mobil as $mob)
-    					<div class="item">
-    						<div class="car-wrap rounded ftco-animate">
+                        <div class="item">
+                          <div class="car-wrap rounded ftco-animate">
+                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-1.jpg);">
+                            </div>
+                            <div class="text">
+                              <h2 class="mb-0"><a href="#">Ford Ranger</a></h2>
+                              <div class="d-flex mb-3">
+                                <span class="cat">Ford</span>
+                                <p class="price ml-auto">RP 400.000<span>/day</span></p>
+                              </div>
 
-		    					<div class="img rounded d-flex align-items-end">
-                                    @empty($mob->gambar)
-                                    <img  class="img rounded" src="{{ url('admin/img/nophoto.png') }}" alt="No Photo">
-                                    @else
-                                    <img class="img rounded" src="{{ url('admin/img') }}/{{ $mob->gambar }}" alt="{{ $mob->nama }}">
-                                    @endempty
-		    					</div>
+                              @guest
+                                  <p class="d-flex mb-0 d-block"><a href="{{ route('login') }}" class="btn btn-primary py-2 mr-1">Login For Book</a></p>
+                              @else
+                                  <p class="d-flex mb-0 d-block"><a href="{{ url('/car') }}" class="btn btn-primary py-2 mr-1">Booking</a></p>
+                              @endguest
 
-                               
+                            </div>
+                          </div>
+                        </div>     
+                        
+                        <div class="item">
+                          <div class="car-wrap rounded ftco-animate">
+                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-2.jpg);">
+                            </div>
+                            <div class="text">
+                              <h2 class="mb-0"><a href="#">BMW I8</a></h2>
+                              <div class="d-flex mb-3">
+                                <span class="cat">BMW</span>
+                                <p class="price ml-auto">RP 700.000 <span>/day</span></p>
+                              </div>
 
-		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">{{ $mob->nama }} </a></h2>
-		    						<div class="d-flex mb-3">
-			    						<span class="cat">Cheverolet</span>
-			    						<p class="price ml-auto">Rp. {{ $mob->harga }} <span>/day</span></p>
-		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
-		    					</div>
-		    				</div>
-    					</div>
-                        @endforeach
+                              @guest
+                                  <p class="d-flex mb-0 d-block"><a href="{{ route('login') }}" class="btn btn-primary py-2 mr-1">Login For Book</a></p>
+                              @else
+                                  <p class="d-flex mb-0 d-block"><a href="{{ url('/car') }}" class="btn btn-primary py-2 mr-1">Booking</a></p>
+                              @endguest
 
+                            </div>
+                          </div>
+                        </div>   
+                        
+                        <div class="item">
+                          <div class="car-wrap rounded ftco-animate">
+                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-5.jpg);">
+                            </div>
+                            <div class="text">
+                              <h2 class="mb-0"><a href="#">Innova</a></h2>
+                              <div class="d-flex mb-3">
+                                <span class="cat">Toyota</span>
+                                <p class="price ml-auto">RP 300.000 <span>/day</span></p>
+                              </div>
+
+                              @guest
+                                  <p class="d-flex mb-0 d-block"><a href="{{ route('login') }}" class="btn btn-primary py-2 mr-1">Login For Book</a></p>
+                              @else
+                                  <p class="d-flex mb-0 d-block"><a href="{{ url('/car') }}" class="btn btn-primary py-2 mr-1">Booking</a></p>
+                              @endguest
+
+                            </div>
+                          </div>
+                        </div>
     					
 
     					

@@ -44,6 +44,7 @@ use App\Http\Controllers\UserController;
 // });
 
 Route::get('/',[BerandaController::class, 'index']);
+Route::get('/car',[BerandaController::class, 'car']);
 
 
 
@@ -99,7 +100,21 @@ Route::resource('perjalanan', PerjalananController::class);
 Route::resource('email', EmailController::class);
 Route::delete('/email/{id}', 'EmailController@destroy')->name('email.destroy');
 
+// tabel pemesan
+Route::get('/pemesan', [PemesanController::class, 'index']);
+Route::get('/pemesan/create', [PemesanController::class, 'create']);
+Route::post('/pemesan/store', [PemesanController::class, 'store']);
+Route::get('/pemesan/show/{id}', [PemesanController::class, 'show']);
+Route::get('/pemesan/delete/{id}', [PemesanController::class, 'destroy']);
+Route::post('/pemesan/update/{id}', [PemesanController::class, 'update']);
+Route::get('/pemesan/edit/{id}', [PemesanController::class, 'edit']);
+
 Route::resource('pemesan', PemesanController::class);
+// Route::get('/pemesan/delete/{id}', [PemesanController::class, 'destroy']);
+// Route::post('/pemesan/update/{id}', [PemesanController::class, 'update']);
+// Route::get('/pemesan/edit/{id}', [PemesanController::class, 'edit']);
+
+
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/profile', [UserController::class, 'show']);
 Route::patch('/profile/edit/{id}', [UserController::class, 'update']);

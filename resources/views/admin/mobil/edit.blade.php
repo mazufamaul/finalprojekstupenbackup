@@ -21,16 +21,6 @@
 </div>
 @endif
 
-@if(session('success'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: '{{ session('success') }}',
-        });
-    </script>
-@endif
-
 
 <form class="p-5 card border mb-3" method="POST" action="{{url('tbl_mobil/update/'.$pr->id)}}" enctype="multipart/form-data">
     @csrf
@@ -100,6 +90,7 @@
         </select>
         </div>
     </div> 
+    
     <div class="form-group row">
         <div class="offset-4 col-8">
         <button name="submit" type="submit" class="btn btn-primary">Update</button>

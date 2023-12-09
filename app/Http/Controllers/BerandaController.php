@@ -16,4 +16,12 @@ class BerandaController extends Controller
         return view('beranda', compact('mobil'));
         // return view ('admin.interface.index', compact('mobil'));
     }
+
+    public function car(){
+        $mobil = tbl_mobil::join('tbl_merk','id_merk', '=', 'tbl_merk.id')
+        ->select('tbl_mobil.*', 'tbl_merk.merk as jenis')
+        ->get();
+        
+        return view('car', compact('mobil'));
+    }
 }
