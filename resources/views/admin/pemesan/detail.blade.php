@@ -91,9 +91,9 @@
                      <td>
                         {{-- <img class="col-6 img rounded" src="{{ asset($data->ktp) }}" alt=""> --}}
                         @empty($data->ktp)
-                        <img style="max-width: 200px; max-height: 200px;" class="card-img p-2 border" src="{{ url('admin/pemesan/nophoto.jpg') }}" alt="No Photo">
+                        <img style="width: 500px; height: 300px;" class="card-img p-2 border" src="{{ url('admin/pemesan/nophoto.jpg') }}" alt="No Photo">
                         @else
-                        <img style="max-width: 200px; max-height: 200px;" class="card-img p-2 border" src="{{ url('admin/pemesan') }}/{{ $data->ktp }}" alt="{{ $data->nama }}">
+                        <img  style="width: 500px; height: 300px;" class="card-img p-2 border" src="{{ url('admin/pemesan') }}/{{ $data->ktp }}" alt="{{ $data->nama }}">
                         @endempty
                      </td>
                   </tr>
