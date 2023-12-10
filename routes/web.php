@@ -108,11 +108,14 @@ Route::get('/pemesan/show/{id}', [PemesanController::class, 'show']);
 Route::get('/pemesan/delete/{id}', [PemesanController::class, 'destroy']);
 Route::post('/pemesan/update/{id}', [PemesanController::class, 'update']);
 Route::get('/pemesan/edit/{id}', [PemesanController::class, 'edit']);
-
 Route::resource('pemesan', PemesanController::class);
 // Route::get('/pemesan/delete/{id}', [PemesanController::class, 'destroy']);
 // Route::post('/pemesan/update/{id}', [PemesanController::class, 'update']);
 // Route::get('/pemesan/edit/{id}', [PemesanController::class, 'edit']);
+
+ 
+
+
 
 
 Route::get('/user', [UserController::class, 'index']);
@@ -121,7 +124,9 @@ Route::patch('/profile/edit/{id}', [UserController::class, 'update']);
 
 });
 
-
+// tabel rent dari user
+Route::get('/rent/create', [RentController::class, 'create']);
+Route::post('/rent/store', [RentController::class, 'store']);
 Route::resource('rent', RentController::class);
 
 Route::delete('/akun/{id}', [AkunController::class, 'destroy'])->name('akun.destroy');

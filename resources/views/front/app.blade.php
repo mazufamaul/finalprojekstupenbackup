@@ -38,20 +38,77 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
-
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a href="{{ url('/car') }}" class="nav-link">Cars</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="{{ url('/car') }}" class="nav-link">List</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 
            
 	        </ul>
 
-            <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li><a class="nav-link" href="{{ route('login') }}"><img src="{{asset('front/images/user.svg')}}"></a></li>
-                <li><a class="nav-link" href="cart.html"><img src="{{asset('front/images/cart.svg')}}"></a></li>
-            </ul>
+          <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5 d-flex align-items-center">
+
+            @guest
+                <li>
+                    <a class="nav-link" href="{{ route('login') }}">
+                        <img src="{{ asset('front/images/user.svg') }}">
+                    </a>
+                </li>
+            @endguest
+        
+            @auth
+                <li class="nav-item dropdown navbar-nav">
+                    <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="{{ asset('front/images/user.svg') }}">
+                    </a>
+        
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <span class="dropdown-item-text">Email: {{ Auth::user()->email }}</span>
+                    </div>
+                </li>
+        
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            @endauth
+        
+        </ul>
+
+            {{-- <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+
+                @guest
+                    <li>
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <img src="{{ asset('front/images/user.svg') }}">
+                        </a>
+                    </li>
+                @endguest
+
+                @auth
+                      <li class="nav-item dropdown navbar-nav">
+                          <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <img src="{{ asset('front/images/user.svg') }}">
+                          </a>
+
+                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                  Logout
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <span class="dropdown-item-text">Email: {{ Auth::user()->email }}</span>
+                          </div>
+                      </li>
+
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                      </form>
+                  @endauth
+
+            </ul> --}}
           
 	      </div>
 	    </div>

@@ -29,7 +29,7 @@ class PemesanController extends Controller
      */
     public function create()
     {
-        $mobil = DB::table('tbl_mobil')->get();
+        $mobil = DB::table('pemesan')->get();
         return view ('admin.pemesan.create', compact('mobil'));
         // return view('admin.pemesan.create');
         
