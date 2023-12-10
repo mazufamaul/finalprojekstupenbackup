@@ -49,8 +49,8 @@
       <form class="p-3" action="{{url('rent/store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
-          <div class="card-header mb-3">
-            <label for="text" class="col-4 col-form-label">Masukkan Identitas diri<i class="fas fa-plus ml-2"></i></label> 
+          <div class="card-header mb-3 text-center" >
+            <label for="text" class="col-4 col-form-label">Form isi data / Pembayaran Tunai<i class="fas fa-plus ml-2"></i></label> 
           </div>
 
           <div class="form-group row">
@@ -137,9 +137,23 @@
               @enderror
             </div>           
           </div>
-       
-          <button type="submit" class="btn btn-primary">kirim</button>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary border" style="border-radius: 20px;"> Kirim </button>
+          </div>  
+         
+          <hr>
+
+          <div class="card-header mb-3 text-center">
+            <label for="text" class="col-4 col-form-label">Form isi data / Pembayaran E-wallet</label> 
+          </div>
+          
     </form>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary border" id="pay-button" style="border-radius: 20px;"> E wallet </button>
+    </div>
+    
     @else
         <div class="container mt-5">
             <div class="row justify-content-center">

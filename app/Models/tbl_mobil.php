@@ -9,7 +9,7 @@ class tbl_mobil extends Model
 {
     use HasFactory;
     protected $table = 'tbl_mobil';
-    protected $fillable = ['nama','warna','no_polisi','jumlah_kursi','tahun_beli','id_merk'];
+    protected $fillable = ['nama','warna','harga','no_polisi','jumlah_kursi','tahun_beli','gambar','id_merk'];
     public $timestamps = false;
 
 

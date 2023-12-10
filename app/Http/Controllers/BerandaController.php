@@ -13,7 +13,7 @@ class BerandaController extends Controller
         ->select('tbl_mobil.*', 'tbl_merk.merk as jenis')
         ->get();
         
-        return view('beranda', compact('mobil'));
+        return view('beranda.beranda', compact('mobil'));
         // return view ('admin.interface.index', compact('mobil'));
     }
 
@@ -22,6 +22,6 @@ class BerandaController extends Controller
         ->select('tbl_mobil.*', 'tbl_merk.merk as jenis')
         ->get();
         
-        return view('car', compact('mobil'));
+        return view('beranda.car', compact('mobil'));
     }
 }
