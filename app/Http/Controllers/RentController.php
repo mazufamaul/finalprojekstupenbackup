@@ -17,9 +17,6 @@ class RentController extends Controller
     public function create()
     {
 
-        // $harga = tbl_mobil::all();
-       
-       
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -43,8 +40,7 @@ class RentController extends Controller
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
-
-        return view('admin.rent.create', compact('snapToken'));
+        return view('admin.rent.create',compact('snapToken'));
     }
 
 
