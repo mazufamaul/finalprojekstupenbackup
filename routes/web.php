@@ -45,6 +45,8 @@ use App\Http\Controllers\UserController;
 
 Route::get('/',[BerandaController::class, 'index']);
 Route::get('/car',[BerandaController::class, 'car']);
+Route::get('/about',[BerandaController::class, 'about']);
+Route::get('/contact',[BerandaController::class, 'contact']);
 
 
 
@@ -135,11 +137,11 @@ Route::resource('akun', AkunController::class);
 
 
 //interface
-Route::get('/interface', [InterfaceController::class, 'index']);
-Route::get('/listing', [InterfaceController::class, 'list']);
-Route::get('/blog', [InterfaceController::class, 'blog']);
-Route::get('/about', [InterfaceController::class, 'about']);
-Route::get('/contact', [InterfaceController::class, 'contact']);
+// Route::get('/interface', [InterfaceController::class, 'index']);
+// Route::get('/listing', [InterfaceController::class, 'list']);
+// Route::get('/blog', [InterfaceController::class, 'blog']);
+// Route::get('/about', [InterfaceController::class, 'about']);
+// Route::get('/contact', [InterfaceController::class, 'contact']);
 
 Auth::routes();
 

@@ -14,8 +14,11 @@ use Illuminate\Support\Str;
 class RentController extends Controller
 {
     //
-    public function create()
+    public function create(Request $request)
     {
+
+      
+        // $hargaMobil = $request->input('harga');
 
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
@@ -25,6 +28,8 @@ class RentController extends Controller
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
+
+       
 
         $params = array(
             'transaction_details' => array(
@@ -41,6 +46,7 @@ class RentController extends Controller
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         return view('admin.rent.create',compact('snapToken'));
+        
     }
 
 

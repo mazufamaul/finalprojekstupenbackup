@@ -2,6 +2,15 @@
 
 @section('content')
 
+<style>
+    .bg-register-image {
+    background-image: url('admin/img3/mobil.jpg');
+    /* Ganti 'path/to/your/image.jpg' dengan path relatif atau URL gambar yang ingin Anda gunakan */
+    background-size: cover; /* Opsional: Sesuaikan ukuran gambar latar belakang */
+    background-position: center; /* Opsional: Sesuaikan posisi gambar latar belakang */
+}
+</style>
+
 <div class="container">
 
         <div class="card o-hidden border-0 shadow-lg my-5">

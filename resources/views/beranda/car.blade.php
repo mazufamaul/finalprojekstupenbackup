@@ -60,7 +60,11 @@
 
                             </div>
 
-                            <p class="d-flex mb-0 d-block"><a href="{{ url('rent/create?mobil=' . urlencode($mob->nama)) }}" class="btn btn-primary py-2 mr-1">Book Now</a></p>
+                            {{-- <p class="d-flex mb-0 d-block"><a href="{{ url('rent/create?mobil=' . urlencode($mob->nama)) }}" class="btn btn-primary py-2 mr-1">Book Now</a></p> --}}
+
+                            <p class="d-flex mb-0 d-block">
+                                <a href="{{ url('rent/create?mobil=' . urlencode($mob->nama) . '&harga=' . $mob->harga) }}" class="btn btn-primary py-2 mr-1">Book Now</a>
+                            </p>
 
                           
                             {{-- <p class="d-flex mb-0 d-block"><a href="{{ url('rent/create/') }}" class="btn btn-primary py-2 mr-1">Book now</a>  --}}

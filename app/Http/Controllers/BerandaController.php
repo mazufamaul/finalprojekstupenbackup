@@ -24,4 +24,15 @@ class BerandaController extends Controller
         
         return view('beranda.car', compact('mobil'));
     }
+
+
+    public function about(){
+        
+        return view('beranda.about');
+    }
+
+    public function contact(){
+        
+        return view('beranda.contact');
+    }
 }

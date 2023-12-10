@@ -110,11 +110,11 @@
                   <span>Data Pesanan</span></a>
             </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                <a class="nav-link" href="{{url('/user')}}">
                   <i class="fas fa-users"></i>
                   <span>Data User Test</span></a>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider">

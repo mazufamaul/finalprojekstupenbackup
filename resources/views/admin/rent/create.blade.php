@@ -97,7 +97,7 @@
           <div class="form-group row">
             <label for="text" class="col-4 col-form-label">Mobil</label> 
               <div class="col-8">
-                  <input id="text" name="mobil" type="text" value="{{ request('mobil') }}" class="form-control @error('mobil') is-invalid @enderror">
+                  <input id="text" readonly name="mobil" type="text" value="{{ request('mobil') }}" class="form-control @error('mobil') is-invalid @enderror">
                   @error('mobil')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -105,6 +105,20 @@
                 @enderror
             </div>
           </div>
+
+          {{-- <div class="form-group row">
+            <label for="text" class="col-4 col-form-label">Biaya Sewa / day</label> 
+            <div class="col-8">
+                @php
+                    // Ambil nilai harga dari request
+                    $harga = request('harga');
+                    // Format nilai harga menjadi format rupiah
+                    $formattedHarga = 'Rp ' . number_format($harga, 0, ',', '.');
+                @endphp
+                <input id="text" readonly type="text" value="{{ $formattedHarga }}" class="form-control">
+            </div>
+        </div> --}}
+
 
           <div class="form-group row">
             <label for="text" class="col-4 col-form-label">Tanggal Pinjam</label> 
@@ -191,6 +205,7 @@
         </div> --}}
     </div>
 </section>
+
 
 <script type="text/javascript">
   // For example trigger on button clicked, or any time you need
