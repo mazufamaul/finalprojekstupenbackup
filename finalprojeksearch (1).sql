@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Des 2023 pada 14.28
+-- Waktu pembuatan: 10 Des 2023 pada 19.59
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -226,19 +226,24 @@ CREATE TABLE `password_reset_tokens` (
 CREATE TABLE `pemesan` (
   `id` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
+  `no_telepon` int(11) NOT NULL,
   `alamat` varchar(100) NOT NULL,
-  `jk` enum('L','P') NOT NULL,
-  `ktp` varchar(100) NOT NULL
+  `ktp` varchar(100) NOT NULL,
+  `mobil` varchar(50) NOT NULL,
+  `tanggal_pinjam` date NOT NULL,
+  `tanggal_kembali` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `pemesan`
 --
 
-INSERT INTO `pemesan` (`id`, `nama`, `alamat`, `jk`, `ktp`) VALUES
-(3, 'Muhammad', 'jl seribu da', 'L', 'storage/pemesan/01HH1VCEFH719WPWD092Q54VVG.jpg'),
-(5, 'Kaisar', 'jl muara angke no 45', 'L', 'storage/pemesan/01HF9XH2JE2E23RC8J2Z43KF3E.jpg'),
-(9, 'Selmaet', 'jl tangerang 45', 'L', 'storage/pemesan/01HFSDG8KNXCMH001JHFA3GKA5.png');
+INSERT INTO `pemesan` (`id`, `nama`, `no_telepon`, `alamat`, `ktp`, `mobil`, `tanggal_pinjam`, `tanggal_kembali`) VALUES
+(3, 'Muhammad', 88465332, 'jl seribu da', 'foto-3.jpg', 'Ford', '2023-12-19', '2023-12-30'),
+(5, 'Kaisar', 86564334, 'jl muara angke no 45', 'foto-5.jpg', 'Innova', '2023-12-12', '2023-12-21'),
+(19, 'Maulana', 987567, 'jl tangerang', 'foto-6573af3b45755.jpg', 'Avnza', '2023-12-20', '2023-12-21'),
+(20, 'Husein Maulana Zoelva', 856643, 'Tangerang', 'foto-6574ad826e86b.jpg', 'Lambroghini', '2023-12-12', '2023-12-14'),
+(22, 'asa', 1223120, 'eweqe', 'foto-6575fbcbb99cf.jpg', 'Lamborgini', '2023-12-14', '2023-12-19');
 
 -- --------------------------------------------------------
 
@@ -349,7 +354,7 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`id`, `harga`, `tgl_pinjam`, `tgl_kembali`, `pemesan_id`, `jenis_bayar_id`, `mobil_id`, `perjalanan_id`) VALUES
-(12, 400000, '2023-11-19', '2023-11-21', 5, 1, 18, 2),
+(12, 600000, '2023-11-19', '2023-11-21', 5, 1, 18, 2),
 (15, 8000, '2023-11-16', '2023-11-24', 3, 1, 18, 2);
 
 -- --------------------------------------------------------
@@ -419,7 +424,7 @@ CREATE TABLE `tbl_mobil` (
 INSERT INTO `tbl_mobil` (`id`, `nama`, `warna`, `harga`, `no_polisi`, `jumlah_kursi`, `tahun_beli`, `gambar`, `id_merk`) VALUES
 (18, 'Ford 23', 'Hitam', 200000, 'RR 2313 WE', 4, 2021, 'foto-18.jpg', 14),
 (19, 'Lamborgini', 'abu abu', 400000, 'R 9387 TR', 4, 2021, 'foto-19.jpg', 25),
-(23, 'Xenia', 'Hitam', 500000, 'RR 2034 RT', 4, 2021, 'foto-23.jpg', 13),
+(23, 'Xenia', 'Hitam', 500000, 'RR 2034 RT', 4, 2021, '', 13),
 (29, 'bmw', 'hijau', 200000, 'ER 2034 RT', 4, 2019, 'foto-29.jpg', 13);
 
 -- --------------------------------------------------------
@@ -446,10 +451,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `role`, `foto`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$EiFIzZZt2iUNbVR.g3d4oe6pLgnlnLaSG1rtIJDoPer0DqGphaPKm', NULL, 'admin', NULL, '2023-11-27 11:46:52', '2023-11-27 11:46:52'),
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$xhLUM3220srqtR6TdVd/kuhBwOd9LpqmRS5qt/2pLaYhleNPJ58r.', NULL, 'admin', 'gyby66hnU04YTDUZ2zpStQG26uWqdZxogwjQBubn.jpg.jpg', '2023-11-27 11:46:52', '2023-12-08 01:30:47'),
 (7, 'pegawai', 'pegawai@gmail.com', NULL, '$2y$10$QvsAe1WwIRtEG.4gp7YRlOHUyxW27Zym6vu/xDMkvW4QbmimPNdFm', NULL, 'manager', NULL, '2023-12-06 07:26:23', '2023-12-06 07:26:23'),
-(8, 'staff', 'staff@gmail.com', NULL, '$2y$10$8lOHSorvMxGdU83qd/uNoO0e0n4xewscXGio7roPD0E/o1IAD2e.S', NULL, 'staff', NULL, '2023-12-06 07:26:59', '2023-12-06 07:26:59'),
-(9, 'pelanggan2', 'pelanggan2@gmail.com', NULL, '$2y$10$oP6plDOCM4I9pi2L3Byq/eoVM.4gPm7JB7tTp1aTa8qXXekjgAogW', NULL, 'staff', NULL, '2023-12-06 10:27:34', '2023-12-06 10:27:34'),
+(8, 'staff', 'staff@gmail.com', NULL, '$2y$10$8.3WXrxd3IU6UwbAqveqDuy2zi4vQo6X0kZn6Jfc21AGMR.1pWbpa', NULL, 'staff', 'DiwVXRaJssYMuh6rB561VR29hFFxKzCwiL9syKyi.jpg.jpg', '2023-12-06 07:26:59', '2023-12-07 11:13:23'),
+(9, 'pelanggan2', 'pelanggan2@gmail.com', NULL, '$2y$10$oP6plDOCM4I9pi2L3Byq/eoVM.4gPm7JB7tTp1aTa8qXXekjgAogW', NULL, 'staff', 'HvgzLCxQxdmP4v8UInfww9Fo7L7vW3U7DyicyzrN.jpg.jpg', '2023-12-06 10:27:34', '2023-12-07 10:19:16'),
 (12, 'pelanggan3', 'pelanggan3@gmail.com', NULL, '$2y$10$mXMeli5RNW2Ske62Rs7Bz.nmVSTqOt9HPM854wxADGAoJee9tgMjy', NULL, 'pelanggan', NULL, '2023-12-06 11:17:04', '2023-12-06 11:17:04'),
 (13, 'pelanggan4', 'pelanggan4@gmail.com', NULL, '$2y$10$kLxbSGRPailmunoZNWUhQOYJ/QplnGYZsaJaDFqF/1WUNxYUnOePq', NULL, 'pelanggan', NULL, '2023-12-06 11:27:17', '2023-12-06 11:27:17'),
 (14, 'penyewa', 'penyewa@gmail.com', NULL, '$2y$10$h.xVNJ6EtmWydEwLCXfOpuVU7dYQ.R7UPo8UUTbBH9bTl3vVwNhI2', NULL, 'pelanggan', NULL, '2023-12-06 12:14:05', '2023-12-06 12:14:05');
@@ -659,7 +664,7 @@ ALTER TABLE `mobils`
 -- AUTO_INCREMENT untuk tabel `pemesan`
 --
 ALTER TABLE `pemesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemesans`
@@ -707,7 +712,7 @@ ALTER TABLE `tbl_merk`
 -- AUTO_INCREMENT untuk tabel `tbl_mobil`
 --
 ALTER TABLE `tbl_mobil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
