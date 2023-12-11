@@ -16,8 +16,12 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
+    
+    @if (Auth::user()->role == 'admin')  
     <a class="btn btn-success" href="{{ route('perjalanan.create') }}" role="button"><i class="fas fa-plus"></i> Tambah Data </a>
     </div>
+    @endif
+
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -48,14 +52,20 @@
                         <td>{{$pl->tujuan}}</td>
                         <td>{{$pl->jarak}}</td>
                         <td >
+
                             <a href="perjalanan/{{ $pl->id }}" class="btn btn-sm btn-info"><i class="fas fa-eye"></i> Lihat Data</a>
+
+                            @if (Auth::user()->role == 'admin')  
                             <a href="perjalanan/{{ $pl->id }}/edit" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Edit Data</a>
+
                             <form class="d-inline" action="perjalanan/{{ $pl->id }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> Hapus 
                                 </button>
                               </form>
+                            @endif  
+
                         </td>
                     </tr>
                     @endforeach

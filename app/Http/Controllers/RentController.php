@@ -17,9 +17,7 @@ class RentController extends Controller
     public function create(Request $request)
     {
 
-      
-        // $hargaMobil = $request->input('harga');
-
+       
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -34,7 +32,7 @@ class RentController extends Controller
         $params = array(
             'transaction_details' => array(
                 'order_id' => rand(),
-                'gross_amount' => 10000,
+                'gross_amount' => 10000, 
             ),
             'customer_details' => array(
                 'first_name' => auth()->user()->name,

@@ -98,7 +98,7 @@
 
 
   <div class="form-group row">
-    <label for="select" class="col-4 col-form-label">Tujuan</label> 
+    <label for="select" class="col-4 col-form-label">Perjalanan</label> 
     <div class="col-8">
         <select id="select" name="perjalanan" class="custom-select">
             @foreach ($perjalanan as $p)

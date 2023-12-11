@@ -53,6 +53,9 @@
       <form class="p-3" action="{{url('rent/store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
+
+        <input type="hidden" name="gross_amount" id="harga" value="">
+
           <div class="card-header mb-3 text-center" >
             <label for="text" class="col-4 col-form-label">Form isi data / Pembayaran Tunai<i class="fas fa-plus ml-2"></i></label> 
           </div>
@@ -106,7 +109,7 @@
             </div>
           </div>
 
-          {{-- <div class="form-group row">
+          <div class="form-group row">
             <label for="text" class="col-4 col-form-label">Biaya Sewa / day</label> 
             <div class="col-8">
                 @php
@@ -115,15 +118,15 @@
                     // Format nilai harga menjadi format rupiah
                     $formattedHarga = 'Rp ' . number_format($harga, 0, ',', '.');
                 @endphp
-                <input id="text" readonly type="text" value="{{ $formattedHarga }}" class="form-control">
+                <input id="biaya_sewa" name="harga" readonly type="text" value="{{ $formattedHarga }}" class="form-control">
             </div>
-        </div> --}}
+        </div> 
 
 
           <div class="form-group row">
             <label for="text" class="col-4 col-form-label">Tanggal Pinjam</label> 
               <div class="col-8">
-                  <input id="text" name="tanggal_pinjam" type="date" class="form-control @error('tanggal_pinjam') is-invalid @enderror">
+                  <input id="tanggal_pinjam" name="tanggal_pinjam" type="date" class="form-control @error('tanggal_pinjam') is-invalid @enderror">
                   @error('tanggal_pinjam')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -135,7 +138,7 @@
           <div class="form-group row">
             <label for="text" class="col-4 col-form-label">Tanggal Kembali</label> 
               <div class="col-8">
-                  <input id="text" name="tanggal_kembali" type="date" class="form-control @error('tanggal_kembali') is-invalid @enderror">
+                  <input id="tanggal_kembali" name="tanggal_kembali" type="date" class="form-control @error('tanggal_kembali') is-invalid @enderror">
                   @error('tanggal_kembali')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -160,15 +163,12 @@
             <button type="submit" class="btn btn-primary border" style="border-radius: 20px;"> Kirim </button>
           </div>  
 
-          
-         
           <hr>
-
-          <div class="card-header mb-3 text-center">
-            <label for="text" class="col-4 col-form-label">Form isi data / Pembayaran E-wallet</label> 
-          </div>
-          
     </form>
+
+    <div class="card-header mb-3 text-center">
+      <label for="text" class="col-4 col-form-label">Form isi data / Pembayaran E-wallet</label> 
+    </div>
 
     <div class="text-center">
         <button type="submit" class="btn btn-primary border" id="pay-button" style="border-radius: 20px;"> E wallet </button>
@@ -231,7 +231,68 @@
       }
     })
   });
+</script> 
+
+
+
+{{-- agar harga sesuai inputang tanggal pinjam dan tanggal kembal --}}
+<!-- Di akhir halaman rent.blade.php -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      // Menangani perubahan tanggal pinjam
+      document.getElementById('tanggal_pinjam').addEventListener('change', updateBiayaSewa);
+
+      // Menangani perubahan tanggal kembali
+      document.getElementById('tanggal_kembali').addEventListener('change', updateBiayaSewa);
+  });
+
+  function updateBiayaSewa() {
+      var tanggalPinjam = new Date(document.getElementById('tanggal_pinjam').value);
+      var tanggalKembali = new Date(document.getElementById('tanggal_kembali').value);
+
+      if (!isNaN(tanggalPinjam.getTime()) && !isNaN(tanggalKembali.getTime())) {
+          var selisihHari = Math.ceil((tanggalKembali - tanggalPinjam) / (1000 * 60 * 60 * 24));
+
+          // Ambil nilai harga per hari dari request
+          var hargaPerHari = parseFloat("{{ $harga }}");
+
+          // Hitung biaya sewa berdasarkan selisih hari
+          var biayaSewa = selisihHari * hargaPerHari;
+
+          // Format biaya sewa menjadi format rupiah
+          var formattedBiayaSewa = 'Rp ' + number_format(biayaSewa, 0, ',', '.');
+
+          // Update nilai input biaya sewa
+          document.getElementById('biaya_sewa').value = formattedBiayaSewa;
+      }
+  }
+
+  // Fungsi untuk format angka menjadi format rupiah
+  function number_format(number, decimals, dec_point, thousands_sep) {
+      number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+      var n = !isFinite(+number) ? 0 : +number,
+          prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+          sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+          dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+          s = '',
+          toFixedFix = function (n, prec) {
+              var k = Math.pow(10, prec);
+              return '' + Math.round(n * k) / k;
+          };
+
+      s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+      if (s[0].length > 3) {
+          s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+      }
+      if ((s[1] || '').length < prec) {
+          s[1] = s[1] || '';
+          s[1] += new Array(prec - s[1].length + 1).join('0');
+      }
+
+      return s.join(dec);
+  }
 </script>
+
 
 
 

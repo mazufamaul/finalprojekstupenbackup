@@ -2,13 +2,6 @@
 
 @section('front')
 
-
-{{-- <script type="text/javascript"
-      src="https://app.sandbox.midtrans.com/snap/snap.js"
-      data-client-key="{{config('midtrans.client_key')}}"></script> --}}
-    
-    {{-- <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet"> --}}
-
 <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('front/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
 
@@ -26,9 +19,12 @@
 
 
 <section class="ftco-section bg-light">
-    <div class="container">
 
+    <div class="container">
         @auth
+
+        @if(count($mobil) > 0)
+
         <div class="row">
             @foreach($mobil as $mob)
                 <div class="col-md-4">
@@ -60,14 +56,13 @@
 
                             </div>
 
-                            {{-- <p class="d-flex mb-0 d-block"><a href="{{ url('rent/create?mobil=' . urlencode($mob->nama)) }}" class="btn btn-primary py-2 mr-1">Book Now</a></p> --}}
+                            <a href="{{ url('rent/create?mobil=' . urlencode($mob->nama) . '&harga=' . $mob->harga) }}" class="btn btn-primary py-2 mr-1" onclick="setHarga('{{ $mob->harga }}')">Book Now</a>
 
-                            <p class="d-flex mb-0 d-block">
+                            {{-- <p class="d-flex mb-0 d-block">
                                 <a href="{{ url('rent/create?mobil=' . urlencode($mob->nama) . '&harga=' . $mob->harga) }}" class="btn btn-primary py-2 mr-1">Book Now</a>
-                            </p>
+                            </p> --}}
 
                           
-                            {{-- <p class="d-flex mb-0 d-block"><a href="{{ url('rent/create/') }}" class="btn btn-primary py-2 mr-1">Book now</a>  --}}
                             </p>
 
                         </div>
@@ -78,6 +73,13 @@
                 </div>
             @endforeach
         </div>
+
+        @else
+            <div class="alert alert-info text-center" role="alert">
+                <strong>Data Mobil Belum Diinputkan oleh Admin.</strong>
+            </div>
+        @endif
+        
         @else
         <div class="container mt-5">
             <div class="row justify-content-center">
@@ -107,34 +109,9 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
-
-{{-- <script type="text/javascript">
-    // For example trigger on button clicked, or any time you need
-    var payButton = document.getElementById('pay-button');
-    payButton.addEventListener('click', function () {
-      // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
-      window.snap.pay('{{ $snapToken }}', {
-        onSuccess: function(result){
-          /* You may add your own implementation here */
-          alert("payment success!"); console.log(result);
-        },
-        onPending: function(result){
-          /* You may add your own implementation here */
-          alert("wating your payment!"); console.log(result);
-        },
-        onError: function(result){
-          /* You may add your own implementation here */
-          alert("payment failed!"); console.log(result);
-        },
-        onClose: function(){
-          /* You may add your own implementation here */
-          alert('you closed the popup without finishing the payment');
-        }
-      })
-    });
-  </script> --}}
 
 
 @endsection

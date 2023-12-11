@@ -118,7 +118,7 @@
 
                         <div class="item">
                           <div class="car-wrap rounded ftco-animate">
-                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-1.jpg);">
+                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/fordranger.jpg);">
                             </div>
                             <div class="text">
                               <h2 class="mb-0"><a href="#">Ford Ranger</a></h2>
@@ -139,7 +139,7 @@
                         
                         <div class="item">
                           <div class="car-wrap rounded ftco-animate">
-                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-2.jpg);">
+                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/bmw.jpg);">
                             </div>
                             <div class="text">
                               <h2 class="mb-0"><a href="#">BMW I8</a></h2>
@@ -157,13 +157,35 @@
                             </div>
                           </div>
                         </div>   
+
+
+                        <div class="item">
+                          <div class="car-wrap rounded ftco-animate">
+                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/xenia.jpg);">
+                            </div>
+                            <div class="text">
+                              <h2 class="mb-0"><a href="#">Xenia Deluxe</a></h2>
+                              <div class="d-flex mb-3">
+                                <span class="cat">Daihatsu</span>
+                                <p class="price ml-auto">RP 500.000<span>/day</span></p>
+                              </div>
+
+                              @guest
+                                  <p class="d-flex mb-0 d-block"><a href="{{ route('login') }}" class="btn btn-primary py-2 mr-1">Login For Book</a></p>
+                              @else
+                                  <p class="d-flex mb-0 d-block"><a href="{{ url('/car') }}" class="btn btn-primary py-2 mr-1">Booking</a></p>
+                              @endguest
+
+                            </div>
+                          </div>
+                        </div>     
                         
                         <div class="item">
                           <div class="car-wrap rounded ftco-animate">
-                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/car-5.jpg);">
+                            <div class="img rounded d-flex align-items-end" style="background-image: url(front/images/innova.jpg);">
                             </div>
                             <div class="text">
-                              <h2 class="mb-0"><a href="#">Innova</a></h2>
+                              <h2 class="mb-0"><a href="#">Kijang Innova</a></h2>
                               <div class="d-flex mb-3">
                                 <span class="cat">Toyota</span>
                                 <p class="price ml-auto">RP 300.000 <span>/day</span></p>
