@@ -9,6 +9,7 @@
 
 ## About Laravel
 
+
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
@@ -72,6 +73,9 @@ USER ->
 email    : pelanggan@gmail.com
 password : 12345678
 
+email : siapakek@gmail.com
+password : 12345678
+
 - memiliki hak akses penuh
 ADMIN ->
 email    : admin@gmail.com
@@ -81,3 +85,6 @@ password : 12345678
 PEGAWAI ->
 email    : pegawai@gmail.com
 password : 12345678
+
+
+- 
