@@ -36,8 +36,9 @@ class PesananController extends Controller
         ->join('tbl_mobil', 'pesanan.mobil_id', '=', 'tbl_mobil.id')
         ->select('pesanan.*', 'pemesan.nama as nama_pemesan', 'perjalanan.asal', 'perjalanan.tujuan', 'jenis_bayar.jenis as jenis_bayar', 'tbl_mobil.nama as nama_mobil')
         ->get();
+        $mobil = DB::table('tbl_mobil')->get();
 
-        return view('admin.pesanan.index', compact('pesanan'));
+        return view('admin.pesanan.index', compact('pesanan','mobil'));
 
         
 

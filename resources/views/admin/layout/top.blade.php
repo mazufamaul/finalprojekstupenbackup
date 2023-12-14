@@ -49,10 +49,9 @@
             @endif
         
         </span>
-        @if(Auth::user()->foto)
-            <img class="img-profile rounded-circle"
-                src="{{asset('/storage/fotos/'.Auth::user()->foto)}}">
-        @endif
+        {{-- @if(Auth::user()->foto) --}}
+            <img class="img-profile rounded-circle" src="{{asset('admin/img/profile_user.png')}}">
+        {{-- @endif --}}
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

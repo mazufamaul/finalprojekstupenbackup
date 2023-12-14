@@ -79,20 +79,20 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        
                                     </a>
                                 @endif
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        {{-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        </a> --}}
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="{{'/'}}">Kembali ke halaman depan</a>
+                                        <a class="small" href="{{url('/')}}">Kembali ke halaman depan</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="{{ route('register') }}">Create an Account!</a>

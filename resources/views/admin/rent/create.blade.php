@@ -147,6 +147,9 @@
             </div>
           </div>
 
+
+        
+
           <div class="form-group row">
             <label for="text4" class="col-4 col-form-label">Foto Ktp</label> 
             <div class="col-8">
@@ -166,13 +169,23 @@
           <hr>
     </form>
 
-    <div class="card-header mb-3 text-center">
-      <label for="text" class="col-4 col-form-label">Form isi data / Pembayaran E-wallet</label> 
+    {{-- <div class="card-header mb-3 text-center">
+      <label for="text" class="col-4 col-form-label">Pembayaran E-wallet</label> 
     </div>
+
+    <div class="form-group row">
+      <label for="amount" class="col-4 col-form-label">Bayar online</label> 
+        <div class="col-8">
+            <input id="text" name="amount" type="number" placeholder="Sesuaikan dengan total biaya sewa" class="form-control">
+      </div>
+    </div>
+
+
+    
 
     <div class="text-center">
         <button type="submit" class="btn btn-primary border" id="pay-button" style="border-radius: 20px;"> E wallet </button>
-    </div>
+    </div> --}}
 
     @else
         <div class="container mt-5">
@@ -291,7 +304,7 @@
 
       return s.join(dec);
   }
-</script>
+</script> 
 
 
 

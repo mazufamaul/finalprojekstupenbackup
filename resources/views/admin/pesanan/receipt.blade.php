@@ -126,7 +126,8 @@
 
         <!-- Notes and total -->
         <div class="notes">
-            <p><strong>Biaya sewa : RP </strong> {{ $order->harga }}</p>
+            <p><strong>Biaya sewa : RP </strong> {{ number_format($order->harga, 0, ',', '.') }}</p>
+            {{-- <p><strong>Biaya sewa : RP </strong> {{ $order->harga }}</p> --}}
         </div>
 
         <div class="signature">

@@ -66,7 +66,8 @@
 
                             <tr>
                                 <td class="label-column">Biaya Sewa</td>
-                                <td class="value-column">: Rp. {{ $p->harga }}</td>
+                                <td class="value-column">: Rp. {{ number_format($p->harga, 0, ',', '.') }}</td>
+                                {{-- <td class="value-column">: Rp. {{ $p->harga }}</td> --}}
                             </tr>
                             <!-- Tambahkan baris lain sesuai kebutuhan -->
                         </table>

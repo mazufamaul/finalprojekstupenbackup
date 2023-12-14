@@ -15,9 +15,10 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
 
-                        
                         <div class="card-header py-3">
                         <a href="{{url('pesanan/create')}}" class="btn btn-success" ><i class="fas fa-plus"></i> Tambah Data</a>
+
+                      </a>
                         </div>
                         
 

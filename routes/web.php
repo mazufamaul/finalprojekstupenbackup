@@ -135,6 +135,10 @@ Route::delete('/akun/{id}', [AkunController::class, 'destroy'])->name('akun.dest
 Route::resource('akun', AkunController::class);
 
 
+// tabel rent
+Route::resource('midtrans', RentController::class);
+
+
 
 //interface
 // Route::get('/interface', [InterfaceController::class, 'index']);

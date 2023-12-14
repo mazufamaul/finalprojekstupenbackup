@@ -19,7 +19,7 @@
 							
                             <div class="d-flex flex-column align-items-center text-center">
 
-                                <img src="{{asset('storage/fotos/'.$user->foto)}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                <img src="{{asset('admin/img/profile_user.png')}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                     <div class="mt-3">
                                         <h4>{{$user->name}}</h4>
                                         <p class="text-secondary mb-1">Full Stack Developer</p>
@@ -131,14 +131,14 @@
 								</div>
 							</div>
 
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
 								<div class="col-sm-3">
 									<h6 class="mb-0">Foto</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
 		<input type="file" class="form-control" name="foto">
 								</div>
-							</div>
+							</div> --}}
 
                             {{-- <div class="row mb-3">
                                 <div class="col-sm-3">
