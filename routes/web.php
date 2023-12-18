@@ -48,7 +48,9 @@ Route::get('/car',[BerandaController::class, 'car']);
 Route::get('/about',[BerandaController::class, 'about']);
 Route::get('/contact',[BerandaController::class, 'contact']);
 
-
+// route sementara
+Route::get('/mobilapi',[MobilController::class,'apiMobil']);
+Route::get('/mobilapi/{id}', [MobilController::class, 'apiMobilDetail']);
 
 Route::group(['middleware' => ['auth', 'peran:admin-manager-staff']], function(){
 

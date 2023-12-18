@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MobilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+Route::get('/mobil', [MobilController::class,'index']);
+Route::get('/mobil/{id}',[MobilController::class,'show']);
+Route::post('/mobil-create',[MobilController::class, 'store']);
+Route::put('/mobil/{id}', [MobilController::class,'update']);
+Route::delete('/mobil/{id}', [MobilController::class,'destroy']);

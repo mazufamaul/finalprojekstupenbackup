@@ -197,4 +197,35 @@ class MobilController extends Controller
         DB::table('tbl_mobil')->where('id', $id)->delete();
         return redirect('/tbl_mobil')->with('success', 'Data mobil berhasil di hapus!');
     }
+
+
+    public function apiMobil(){
+        $mobil = tbl_mobil::all();
+        return response()->json([
+            'success'=>true,
+            'message'=> 'Data Mobil',
+            'data' =>$mobil
+        ],200
+    );
+    }
+
+    public function apiMobilDetail($id){
+        $mobil = tbl_mobil::find($id);
+        if($mobil){
+            return response()->json([
+                'success' => true,
+                'message'=> 'Detail Mobil',
+                'data'=> $mobil
+            ],
+            200);
+        }
+        else{
+            return response()->json([
+                'success' => false,
+                'message' => 'Detail Mobil tidak ditemukan'
+            ], 400);
+        }
+    }
+
+
 }
