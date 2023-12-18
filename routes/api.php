@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MobilController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,15 @@ use App\Http\Controllers\Api\MobilController;
 //     return $request->user();
 // });
 
+// Route::middleware(["auth:sanctum"])->group(function(){
 
 Route::get('/mobil', [MobilController::class,'index']);
 Route::get('/mobil/{id}',[MobilController::class,'show']);
 Route::post('/mobil-create',[MobilController::class, 'store']);
 Route::put('/mobil/{id}', [MobilController::class,'update']);
 Route::delete('/mobil/{id}', [MobilController::class,'destroy']);
+
+// });
+
+Route::post('/register',[AuthController::class,'register']);
+Route::post('/login', [AuthController::class, 'login']);
